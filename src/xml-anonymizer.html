@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XML Anonymizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <h1>XML Anonymizer</h1>
+      <details class="instructions">
+        <summary>
+          <h2>Instructions</h2>
+        </summary>
+        <div class="details">
+          <p>
+            This may be used to change XML fields with PII into numbers. It will
+            keep values that are the same in the original XML a same new value.
+            For example, if you had an EMPLID <code>123456</code> and you
+            anonymize it, it will transform it to something like
+            <code>000000</code> and all subsequent <code>123456</code> values
+            found in the XML will be replaced with <code>000000</code>.
+          </p>
+          <p>
+            Add additional fields by their XML tag name. For
+            <code>EMPLID</code>, type <code>EMPLID</code>, not
+            <code>&lt;EMPLID&gt;</code>. Click corresponding button to remove
+            from anonymizer.
+          </p>
+        </div>
+      </details>
+      <section class="field-list">
+        <form id="fieldForm" onsubmit="">
+          <label for="xpathInput">XML Field Name: </label>
+          <input
+            type="text"
+            id="xpathInput"
+            placeholder="Insert XML Field: EMPLID not <EMPLID>"
+          />
+          <button type="submit">Add Field</button>
+          <div class="fields"></div>
+        </form>
+      </section>
+    </header>
+    <main class="sideBySide">
+      <label for="xmlInput" class="label"
+        >Input
+        <button onclick="processXML()">Anonymize</button>
+      </label>
+      <textarea
+        name="XML Anonymizer"
+        class="code-input"
+        id="xmlInput"
+        spellcheck="false"
+        placeholder="Enter XML Here"
+      ></textarea>
+      <label for="xmlOutput" class="label"
+        >Output
+        <button id="copyButton" disabled>Copy Results To Clipboard</button>
+        <button id="downloadButton" disabled>Download XML</button>
+      </label>
+      <textarea
+        name="XML Anonymizer"
+        class="code-output"
+        id="xmlOutput"
+        k
+        readonly
+        placeholder="Output will be shown here"
+      ></textarea>
+    </main>
+    <script src="xml.js"></script>
+  </body>
+</html>

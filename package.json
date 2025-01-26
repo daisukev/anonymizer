@@ -1,0 +1,16 @@
+{
+  "name": "anonymizer",
+  "version": "1.0.0",
+  "main": "bundle.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node bundle.mjs"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "html-minifier": "^4.0.0"
+  }
+}

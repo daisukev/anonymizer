@@ -1,0 +1,172 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  --default-padding: 0.5rem 1rem;
+  --button-padding: 0.25rem 0.5rem;
+  --backround-color: #fcfcfc;
+  --secondary-color: rgb(247, 246, 246);
+  --secondary-hover-color: rgb(225, 224, 224);
+  --red: #d32f2f;
+  --text-color: #333;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--backround-color);
+  color: var(--text-color);
+  margin: 0 auto;
+  max-width: 60rem;
+}
+
+button {
+  border: 1px solid var(--text-color);
+  /* border-radius: 8px; */
+  padding: var(--button-padding);
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  transition: transform 0.1s ease-in-out;
+}
+button:hover {
+  background-color: var(--secondary-hover-color);
+}
+button:active {
+  /* transform: translate(2px, 2px); */
+  transform: scale(0.95);
+}
+buton:disabled,
+button[disabled] {
+  cursor: auto;
+}
+button:disabled:hover {
+  background-color: var(--secondary-color);
+}
+button:disabled:active {
+  transform: unset;
+}
+h1 {
+  font-size: 1.7rem;
+}
+h2 {
+  font-size: 1.4rem;
+}
+main,
+section,
+header {
+  margin-block: 1rem;
+}
+input {
+  width: 40ch;
+}
+input,
+button {
+  min-height: 1.75rem;
+  font-size: 1rem;
+  padding: var(--button-padding);
+}
+.container {
+  margin: 0 auto;
+  padding: 1rem;
+}
+.header {
+  box-sizing: border-box;
+}
+.details {
+  padding: var(--default-padding);
+}
+.instructions summary {
+  cursor: pointer;
+  padding: var(--default-padding);
+  background-color: var(--secondary-color);
+}
+.instructions p {
+  line-height: 1.5;
+  padding-block: 1rem;
+}
+details summary {
+  cursor: pointer;
+}
+details summary > * {
+  display: inline;
+}
+details > div {
+  border: 2px solid var(--secondary-color);
+}
+.sideBySide {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content 1fr;
+  gap: 0 1rem;
+  max-width: 100cqw;
+  box-sizing: border-box;
+}
+.label {
+  font-weight: bold;
+  font-size: 1.2rem;
+  grid-row: 1;
+  padding: 0.15rem 0;
+  margin: 0;
+}
+.fields {
+  padding-block: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.fieldNode {
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 1rem;
+  /* background-color: ffd7d7; */
+  background-color: transparent;
+  /* color: rebeccapurple; */
+  border: none;
+  border-radius: 8px;
+  position: relative;
+}
+.fieldNode:hover::after {
+  font-size: 0.85rem;
+  content: "️❌";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  visibility: visible;
+  animation: slide-in 0.075s ease-in-out forwards;
+}
+@keyframes slide-in {
+  0% {
+    top: 0px;
+    right: 0px;
+    opacity: 0;
+  }
+  100% {
+    top: -0.5rem;
+    right: -0.5rem;
+    opacity: 1;
+  }
+}
+.code-output,
+.code-input {
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  line-height: 1.5;
+  box-sizing: border-box;
+  display: block;
+  overflow-y: scroll;
+  font-size: 1rem;
+  min-height: calc(1.5rem * 10);
+  padding: 1rem 1rem;
+}
+p {
+  max-width: 60ch;
+}
+code {
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+}
+
+#copyButton {
+  position: relative;
+}
+#copyButton::after {
+  content: "";
+  /* visibility: hidden */
+}
