@@ -3,7 +3,15 @@ const outputXML = document.getElementById("xmlOutput");
 const copyButton = document.getElementById("copyButton");
 const downloadButton = document.getElementById("downloadButton");
 
-const fields = ["EMPLID", "NATIONAL_ID", "PREV_SSN", "PREV_ALPHA", "Z_DOD_ID"];
+const fields = [
+  "EMPLID",
+  "NATIONAL_ID",
+  "PREV_SSN",
+  "PREV_ALPHA",
+  "Z_DOD_ID",
+  "OPRID",
+  "ORIGINATORID",
+];
 class Parser {
   constructor(fieldsArr) {
     this.fields = [];
@@ -65,7 +73,7 @@ class Parser {
         xmlDoc,
         null,
         XPathResult.UNORDERED_NODE_SNAPSHOT_TYPE,
-        null
+        null,
       );
       for (let i = 0; i < nodes.snapshotLength; i++) {
         const node = nodes.snapshotItem(i);
@@ -94,7 +102,7 @@ class Parser {
           const currentValue = node.textContent || "";
           const replacement = this.generateReplacement(
             field.name,
-            currentValue
+            currentValue,
           );
           node.textContent = replacement;
         }
@@ -153,7 +161,7 @@ const downloadXML = () => {
     link.setAttribute("href", window.URL.createObjectURL(blob));
     link.setAttribute("download", fileName);
     link.dataset.downloadurl = ["text/plain", link.download, link.href].join(
-      ":"
+      ":",
     );
     link.click();
   }
